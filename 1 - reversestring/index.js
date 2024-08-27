@@ -16,7 +16,9 @@ function reverse(str) {
     return word;
 }
 
-/* Best approach
+module.exports = reverse;
+
+/* Solution 1
 function reverse(str) {
     return str.split('').reverse().join('');
 }
@@ -25,4 +27,29 @@ function reverse(str) {
     3 - join method: Joins the elements of the array back into a string. The '' argument means the elements will be joined without any separator.
 */
 
-module.exports = reverse;
+/* Solution 2
+function reverse(str) {
+    let reversed = '';
+
+    for (let character of str) {
+    reversed = character + reversed;
+    }
+
+    return reversed;
+}
+    1 - Initialize an empty string 'reversed' to store the reversed version of the input string.
+    2 - for...of loop: Iterates over each character in the input string 'str'.
+    3 - Add each character to the start of 'reversed': By placing the current character at the beginning of 'reversed', the string is reversed as you iterate.
+    4 - Return the reversed string after the loop completes.
+*/
+
+/* Solution 3
+function reverse(str) {
+    return str.split('').reduce((rev, char) => char + rev, '');
+}
+    1 - split method: Divides the string into an array of characters.
+    2 - reduce method: Iterates over each character in the array and accumulates a reversed string.
+        - 'char + rev': Adds the current character to the beginning of the accumulated string.
+        - '' as the initial value ensures the first character is correctly placed.
+    3 - The final accumulated string 'rev' is returned as the reversed version of the original string.
+*/
