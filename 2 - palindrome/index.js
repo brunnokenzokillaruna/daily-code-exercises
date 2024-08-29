@@ -7,6 +7,43 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+    let reversed = "";
+
+    for (let character of str) {
+        reversed = character + reversed;
+    }
+
+    if (reversed === str) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 module.exports = palindrome;
+
+/* Solution 1
+function palindrome(str) {
+    const reversed = str.split('').reverse().join('');
+    
+    return str === reversed;
+}
+    1 - split method: Converts the string into an array of characters.
+    2 - reverse method: Reverses the order of the elements in the array.
+    3 - join method: Combines the array of characters back into a single string.
+    4 - Return true if the original string is strictly equal to the reversed string (checks both value and type).
+*/
+
+/* Solution 2
+function palindrome(str) {
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1];
+    });
+}
+    1 - split method: Converts the string into an array of characters.
+    2 - every method: Iterates over each character in the array, checking a condition.
+    3 - Comparison: For each character, compares it to the corresponding character from the end of the string (str[str.length - i - 1]).
+    4 - Return true if all characters match their corresponding character from the end of the string, meaning the string is a palindrome.
+*/
