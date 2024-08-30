@@ -7,13 +7,14 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
-    var word = "";
+    var word = ""; // Initialize an empty string to store the reversed word.
 
+    // Loop through the string starting from the last character to the first.
     for (let i = str.length - 1; i >= 0; i--) {
-        word += str[i];
+        word += str[i]; // Add each character to the 'word' variable, effectively reversing the string.
     }
 
-    return word;
+    return word; // Return the reversed string.
 }
 
 module.exports = reverse;

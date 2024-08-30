@@ -8,17 +8,20 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-    let reversed = "";
+    let reversed = ""; // Initialize an empty string to store the reversed version of the input string.
 
+    // Loop through each character in the input string.
     for (let character of str) {
+        // Prepend each character to the 'reversed' string to build it in reverse order.
         reversed = character + reversed;
     }
 
+    // Compare the reversed string with the original string.
     if (reversed === str) {
-        return true;
+        return true; // If they are the same, the string is a palindrome, so return true.
     }
     else {
-        return false;
+        return false; // If they are not the same, the string is not a palindrome, so return false.
     }
 }
 

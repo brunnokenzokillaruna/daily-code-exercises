@@ -9,10 +9,13 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
+    // Convert the integer to a string, split it into an array of characters, reverse the array, and join it back into a string.
     const reversedString = n.toString().split('').reverse().join('');
 
+    // Convert the reversed string back into an integer.
     const reversedNumber = parseInt(reversedString);
 
+    // Multiply the reversed number by the sign of the original number to maintain the correct sign (positive or negative).
     return Math.sign(n) * reversedNumber;
 }
 
