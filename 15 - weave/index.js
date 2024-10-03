@@ -24,6 +24,25 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+    const thirdQueue = new Queue(); // Initialize a new queue to hold the combined elements.
+
+    // Continue looping while there are elements in either sourceOne or sourceTwo.
+    while (sourceOne.peek() || sourceTwo.peek()) {
+
+        // If sourceOne has elements, remove the first one and add it to thirdQueue.
+        if (sourceOne.peek()) {
+            thirdQueue.add(sourceOne.remove());
+        }
+
+        // If sourceTwo has elements, remove the first one and add it to thirdQueue.
+        if (sourceTwo.peek()) {
+            thirdQueue.add(sourceTwo.remove());
+        }
+    }
+
+    // Return the new queue containing the alternated elements from both sourceOne and sourceTwo.
+    return thirdQueue;
+}
 
 module.exports = weave;
